@@ -1,9 +1,9 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
+ <img width=200px height=200px src="https://user-images.githubusercontent.com/83460816/191837760-e4933ebc-d7d6-4c63-84c3-03d06dbdc4b5.png" alt="Project logo"></a>
 </p>
 
-<h3 align="center">Project Title</h3>
+<h3 align="center">Go Object Orientation</h3>
 
 <div align="center">
 
