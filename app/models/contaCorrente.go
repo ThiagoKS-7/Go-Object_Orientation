@@ -4,7 +4,7 @@ import "fmt"
 //Maiúsculo = public
 //minusculo = private
 type ContaCorrente struct {
-	Titular       string
+	Titular       Titular
 	NumeroAgencia int
 	NumeroConta   int
 	Saldo         float64
@@ -38,9 +38,9 @@ func (c *ContaCorrente) Transferir(valor float64, destino ContaCorrente) {
 }
 
 func (c *ContaCorrente) Show() {
+	c.Titular.Show()
 	fmt.Printf(
-		"Titular: %s\n"+
 			"Agência: %d\n"+
 			"Conta: %d\n"+
-			"Saldo: %.2f\n\n", c.Titular, c.NumeroAgencia, c.NumeroConta, c.Saldo)
+			"Saldo: %.2f\n\n", c.NumeroAgencia, c.NumeroConta, c.Saldo)
 }
