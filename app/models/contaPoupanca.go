@@ -3,13 +3,13 @@ import "fmt"
 
 //Maiúsculo = public
 //minusculo = private
-type ContaCorrente struct {
+type ContaPoupanca struct {
 	Titular                     Titular
 	NumeroAgencia, NumeroConta  int
 	Saldo                       float64
 }
 // o c na frente equivale ao this/self
-func (c *ContaCorrente) Sacar(valor float64) string {
+func (c *ContaPoupanca) Sacar(valor float64) string {
 	if c.Saldo >= valor &&  valor > 0 {
 		fmt.Println("\nSacando",valor, "de", c.Titular)
 		c.Saldo -= valor
@@ -21,7 +21,7 @@ func (c *ContaCorrente) Sacar(valor float64) string {
 		return "\nSaldo insuficiente\n"
 	}
 }
-func (c *ContaCorrente) Depositar(valor float64) string {
+func (c *ContaPoupanca) Depositar(valor float64) string {
     if valor > 0 {
 			fmt.Println("\nDepositando",valor, "de", c.Titular)
 			c.Saldo += valor
@@ -31,16 +31,16 @@ func (c *ContaCorrente) Depositar(valor float64) string {
 		return "Operação inválida!\n"
 }
 
-func (c *ContaCorrente) Transferir(valor float64, destino ContaCorrente) {
+func (c *ContaPoupanca) Transferir(valor float64, destino ContaPoupanca) {
 	c.Sacar(valor)
 	destino.Depositar(valor)
 }
 
-func (c *ContaCorrente) GetSaldo() float64 {
+func (c *ContaPoupanca) GetSaldo() float64 {
 	return c.Saldo
 }
 
-func (c *ContaCorrente) Show() {
+func (c *ContaPoupanca) Show() {
 	c.Titular.Show()
 	fmt.Printf(
 			"Agência: %d\n"+
@@ -48,7 +48,7 @@ func (c *ContaCorrente) Show() {
 			"Saldo: %.2f\n\n", c.NumeroAgencia, c.NumeroConta, c.Saldo)
 }
 
-func (c *ContaCorrente) PagarBoleto(valor float64) {
+func (c *ContaPoupanca) PagarBoleto(valor float64) {
   c.Sacar(valor)
   fmt.Println("Boleto de %.2f pago com sucesso!\n", valor)
 }
