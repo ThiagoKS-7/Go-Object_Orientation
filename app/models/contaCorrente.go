@@ -4,9 +4,10 @@ import "fmt"
 //Maiúsculo = public
 //minusculo = private
 type ContaCorrente struct {
-	Titular                     Titular
-	NumeroAgencia, NumeroConta  int
-	Saldo                       float64
+	Titular       Titular
+	NumeroAgencia int
+	NumeroConta   int
+	Saldo         float64
 }
 // o c na frente equivale ao this/self
 func (c *ContaCorrente) Sacar(valor float64) string {
@@ -36,19 +37,10 @@ func (c *ContaCorrente) Transferir(valor float64, destino ContaCorrente) {
 	destino.Depositar(valor)
 }
 
-func (c *ContaCorrente) GetSaldo() float64 {
-	return c.Saldo
-}
-
 func (c *ContaCorrente) Show() {
 	c.Titular.Show()
 	fmt.Printf(
 			"Agência: %d\n"+
 			"Conta: %d\n"+
 			"Saldo: %.2f\n\n", c.NumeroAgencia, c.NumeroConta, c.Saldo)
-}
-
-func (c *ContaCorrente) PagarBoleto(valor float64) {
-  c.Sacar(valor)
-  fmt.Println("Boleto de %.2f pago com sucesso!\n", valor)
 }
